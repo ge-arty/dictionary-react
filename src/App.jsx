@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { getWord } from "./utils/getWord";
+import Content from "./components/Content";
+import Header from "./components/Header";
+import SearchInput from "./components/SearchInput";
 
 function App() {
-  fetch("https://api.dictionaryapi.dev/api/v2/entries/en/table")
-    .then((res) => res.json())
-    .then((res) => console.log(res));
+  const [word, setWord] = useState("table");
+  const [bgColor, setBgColor] = useState(false);
 
-  return <div className="App"></div>;
+  const getResource = async (word) => {
+    const res = await getWord(word);
+  };
+
+  useEffect(() => {
+    getResource(word);
+  }, [word]);
+
+  return (
+    <div className="app-container">
+      <Header />
+      <SearchInput />
+      <Content />
+    </div>
+  );
 }
 
 export default App;
