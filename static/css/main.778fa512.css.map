@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.778fa512.css","mappings":"AAAA,EAIE,qBAAsB,CACtB,cAAe,CAJf,oBAAqB,CAErB,QAAS,CADT,SAIF,CACA,KAEE,aAAc,CADd,YAEF","sources":["index.css"],"sourcesContent":["* {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n  font-size: 16px;\n}\nbody {\n  width: 1440px;\n  margin: 0 auto;\n}\n"],"names":[],"sourceRoot":""}
