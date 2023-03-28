@@ -7,6 +7,7 @@ export default function SearchInput(props) {
       <div className="search-input-container">
         <input
           onChange={props.onChange}
+          value={props.word}
           placeholder="Search for any word…"
           type="text"
         />

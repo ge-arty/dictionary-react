@@ -3,7 +3,6 @@ export const getWord = async (word) => {
     const res = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
     );
-    console.log(res);
 
     if (!res.ok) {
       console.error(`Couldn't fetch. ,${res.status}`);

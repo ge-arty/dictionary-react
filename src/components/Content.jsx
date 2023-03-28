@@ -2,6 +2,10 @@ import React from "react";
 import "./Content.css";
 
 export default function Content(props) {
+  function playAudio() {
+    let audio = new Audio(props.audioUrl);
+    audio.play();
+  }
   return (
     <div className="content-container">
       <div className="content-word-main">
@@ -11,6 +15,7 @@ export default function Content(props) {
         </div>
         {props.word && (
           <svg
+            onClick={() => playAudio()}
             width="75"
             height="75"
             viewBox="0 0 75 75"

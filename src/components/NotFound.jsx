@@ -4,7 +4,7 @@ import "./NotFound.css";
 export default function notFound() {
   return (
     <div className="not-found-container">
-      <span>😕</span>
+      <span className="not-found-emoji">😕</span>
       <h3 className="not-found-title">No Definitions Found</h3>
       <p className="not-found-text">
         Sorry pal, we couldn't find definitions for the word you were looking
