@@ -18,20 +18,23 @@ export default function Header() {
         <path
           d="M5 37C3.9391 37 2.92172 36.5786 2.17157 35.8284C1.42143 35.0783 1 34.0609 1 33C1 31.9391 1.42143 30.9217 2.17157 30.1716C2.92172 29.4214 3.9391 29 5 29"
           stroke="#757575"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M11 9H23"
           stroke="#757575"
-          stroke-width="1.5"
-          stroke-linecap="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
         />
       </svg>
+
       <div className="header-elements-box">
         <div className="header-select-box">
-          <p>Sans-Serif</p>
+          <p className="header-select-text" style={{ fontSize: "1.125rem" }}>
+            Sans-Serif
+          </p>
           <svg
             width="13"
             height="9"
@@ -39,13 +42,16 @@ export default function Header() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M1 1L7 7L13 1" stroke="#A445ED" stroke-width="1.5" />
+            <path d="M1 1L7 7L13 1" stroke="#A445ED" strokeWidth="1.5" />
           </svg>
         </div>
+
         <div className="header-vertical-line"></div>
-        <div>
+
+        <div className="header-bgcolor-btn">
           <div className="header-bgcolor-circle"></div>
         </div>
+
         <svg
           width="22"
           height="22"
@@ -54,13 +60,13 @@ export default function Header() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M1 10.449C0.998458 12.8283 1.80169 15.1383 3.27914 17.0033C4.75659 18.8683 6.82139 20.1788 9.13799 20.7218C11.4545 21.2647 13.8866 21.0082 16.039 19.994C18.1912 18.9797 19.9373 17.2673 20.9931 15.1352C11.5442 15.1352 6.85799 10.4479 6.85799 1C5.09842 1.87311 3.61767 3.22033 2.58266 4.88981C1.54765 6.5593 0.999502 8.48469 1 10.449Z"
             stroke="#757575"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </div>

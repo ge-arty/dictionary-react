@@ -1,0 +1,30 @@
+.content-container {
+  margin-top: 45px;
+  width: 100%;
+}
+.content-word-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.content-word-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+}
+.content-word {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 77px;
+  color: #2d2d2d;
+}
+.content-transcription {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 29px;
+  color: #a445ed;
+}
