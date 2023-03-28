@@ -33,7 +33,12 @@
   height: 20px;
   background: #757575;
   border-radius: 10px;
+  cursor: pointer;
 }
+.header-bgcolor-btn:hover {
+  background: #a445ed;
+}
+
 .header-bgcolor-circle {
   width: 14px;
   height: 14px;
