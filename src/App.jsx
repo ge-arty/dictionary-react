@@ -21,15 +21,16 @@ function App() {
   // --------------functions
 
   const getResource = async (word) => {
-    const [res] = await getWord(word);
-    setIncorrectWord(false);
+    const res = await getWord(word);
 
-    if (res) {
-      setData(res);
-      setAudioUrl(getAudioUrl(res));
-    } else {
+    if (!res) {
       setIncorrectWord(true);
+      return;
     }
+    console.log("abc");
+    setData(res[0]);
+    setAudioUrl(getAudioUrl(res[0]));
+    setIncorrectWord(false);
   };
 
   function searchWord() {
@@ -39,7 +40,6 @@ function App() {
       setEmpty(true);
       setIncorrectWord(true);
     } else {
-      setIncorrectWord(false);
       setEmpty(false);
       setWord("");
     }
