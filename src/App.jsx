@@ -23,6 +23,7 @@ function App() {
   const getResource = async (word) => {
     const [res] = await getWord(word);
     setIncorrectWord(false);
+
     if (res) {
       setData(res);
       setAudioUrl(getAudioUrl(res));

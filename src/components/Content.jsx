@@ -4,8 +4,10 @@ import Meanings from "./Meanings";
 
 export default function Content(props) {
   function playAudio() {
-    let audio = new Audio(props.audioUrl);
-    audio.play();
+    if (!props.audioUrl === false) {
+      let audio = new Audio(props.audioUrl);
+      audio.play();
+    }
   }
 
   return (
