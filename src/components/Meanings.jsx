@@ -37,7 +37,11 @@ export default function Meanings(props) {
         <div className="meaning-antonyms-box">
           <p>Antonyms</p>
           {props.meaning.antonyms.map((element, index) => {
-            return <span key={index}>{element}</span>;
+            return (
+              <span onClick={() => selectWord(element)} key={index}>
+                {element}
+              </span>
+            );
           })}
         </div>
       )}
