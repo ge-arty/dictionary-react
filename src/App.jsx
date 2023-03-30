@@ -15,7 +15,7 @@ function App() {
   const [empty, setEmpty] = useState(false);
   const [incorrectWord, setIncorrectWord] = useState(false);
 
-  const [bgColor, setBgColor] = useState({});
+  // const [bgColor, setBgColor] = useState({});
 
   const [data, setData] = useState("");
   // --------------functions
@@ -36,10 +36,18 @@ function App() {
 
     if (word.length === 0) {
       setEmpty(true);
+      setIncorrectWord(true);
     } else {
+      setIncorrectWord(false);
       setEmpty(false);
       setWord("");
     }
+  }
+
+  function selectWord(word) {
+    if (word.includes(" ")) {
+      setIncorrectWord(true);
+    } else getResource(word);
   }
 
   return (
@@ -58,6 +66,9 @@ function App() {
           word={data.word}
           phonetic={data.phonetic}
           audioUrl={audioUrl}
+          meanings={data.meanings}
+          sourceUrls={data.sourceUrls}
+          onClick={selectWord}
         />
       )}
     </div>

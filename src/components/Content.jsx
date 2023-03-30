@@ -1,11 +1,13 @@
 import React from "react";
 import "./Content.css";
+import Meanings from "./Meanings";
 
 export default function Content(props) {
   function playAudio() {
     let audio = new Audio(props.audioUrl);
     audio.play();
   }
+
   return (
     <div className="content-container">
       <div className="content-word-main">
@@ -15,6 +17,7 @@ export default function Content(props) {
         </div>
         {props.word && (
           <svg
+            className="content-play"
             onClick={() => playAudio()}
             width="75"
             height="75"
@@ -32,6 +35,31 @@ export default function Content(props) {
           </svg>
         )}
       </div>
+      {props.meanings?.map((meaning, index) => {
+        return (
+          <Meanings
+            key={index}
+            partOfSpeech={meaning.partOfSpeech}
+            meaning={meaning}
+            onClick={props.onClick}
+          />
+        );
+      })}
+      {props.sourceUrls && (
+        <>
+          <div className="content-horizontal-line"></div>
+          <div className="content-source-box">
+            <span> Source</span>
+            {props.sourceUrls?.map((link, index) => {
+              return (
+                <a key={index} href={link}>
+                  {link}
+                </a>
+              );
+            })}
+          </div>
+        </>
+      )}
     </div>
   );
 }
