@@ -6,15 +6,14 @@ export default function SearchInput(props) {
     <>
       <div className="search-input-container">
         <input
-          className={`${
+          className={`search-input ${
             props.activeThemeBtn ? "placeholder-color1" : "placeholder-color2"
-          }`}
+          } ${props.empty ? "search-input-border" : ""}`}
           style={
             props.activeThemeBtn
-              ? {
-                  backgroundColor: props.bgColorInput,
-                  color: props.bgColorW,
-                }
+              ? { backgroundColor: props.bgColorInput, color: props.bgColorW }
+              : props.empty === true
+              ? { border: "1px solid red" }
               : {}
           }
           onChange={props.onChange}
