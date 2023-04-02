@@ -84,7 +84,7 @@ function App() {
         bgColorInput={bgColor.inputCol}
       />
       {incorrectWord ? (
-        <NotFound />
+        <NotFound activeThemeBtn={activeThemeBtn} bgColorW={bgColor.white} />
       ) : (
         <Content
           word={data.word}
