@@ -14,11 +14,23 @@ function App() {
 
   const [empty, setEmpty] = useState(false);
   const [incorrectWord, setIncorrectWord] = useState(false);
+  const [activeThemeBtn, setActiveThemeBtn] = useState(false);
 
-  // const [bgColor, setBgColor] = useState({});
+  const bgColor = {
+    white: "#FFFFFF",
+    black: "#050505",
+    gray: "#757575",
+    inputCol: "#1F1F1F",
+    btnCol: "#A445ED",
+  };
 
   const [data, setData] = useState("");
+
   // --------------functions
+
+  function activateBtn() {
+    setActiveThemeBtn(!activeThemeBtn);
+  }
 
   const getResource = async (word) => {
     const res = await getWord(word);
@@ -27,7 +39,6 @@ function App() {
       setIncorrectWord(true);
       return;
     }
-    console.log("abc");
     setData(res[0]);
     setAudioUrl(getAudioUrl(res[0]));
     setIncorrectWord(false);
@@ -52,13 +63,25 @@ function App() {
   }
 
   return (
-    <div className="app-container">
-      <Header />
+    <div
+      className="app-container"
+      style={activeThemeBtn ? { backgroundColor: bgColor.black } : {}}
+    >
+      <Header
+        activeThemeBtn={activeThemeBtn}
+        activateBtn={activateBtn}
+        bgColorW={bgColor.white}
+        bgColorP={bgColor.btnCol}
+        bgColorInput={bgColor.inputCol}
+      />
       <SearchInput
         onChange={(e) => setWord(e.target.value)}
         searchWord={() => searchWord()}
         empty={empty}
         word={word}
+        activeThemeBtn={activeThemeBtn}
+        bgColorW={bgColor.white}
+        bgColorInput={bgColor.inputCol}
       />
       {incorrectWord ? (
         <NotFound />
@@ -70,6 +93,8 @@ function App() {
           meanings={data.meanings}
           sourceUrls={data.sourceUrls}
           onClick={selectWord}
+          activeThemeBtn={activeThemeBtn}
+          bgColorW={bgColor.white}
         />
       )}
     </div>

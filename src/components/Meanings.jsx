@@ -8,7 +8,9 @@ export default function Meanings(props) {
   return (
     <div className="meaning-container">
       <div className="meaning-part-speech-box">
-        <span>{props.partOfSpeech}</span>
+        <span style={props.activeThemeBtn ? { color: props.bgColorW } : {}}>
+          {props.partOfSpeech}
+        </span>
         <div></div>
       </div>
       <h3 className="meaning-title">Meaning</h3>
@@ -16,7 +18,11 @@ export default function Meanings(props) {
         {props.meaning.definitions.map((element, index) => {
           return (
             <li key={index}>
-              <span>{element.definition}</span>
+              <span
+                style={props.activeThemeBtn ? { color: props.bgColorW } : {}}
+              >
+                {element.definition}
+              </span>
             </li>
           );
         })}

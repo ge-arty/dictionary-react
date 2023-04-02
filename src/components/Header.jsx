@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 
-export default function Header() {
+export default function Header(props) {
+  const [selectWindow, setSelectWindow] = useState(false);
+  const [hovered1, setHovered1] = useState(false);
+  const [hovered2, setHovered2] = useState(false);
+  const [hovered3, setHovered3] = useState(false);
+
+  function windowShow() {
+    setSelectWindow(!selectWindow);
+  }
+
   return (
     <div className="header-container">
       <svg
@@ -31,8 +40,11 @@ export default function Header() {
       </svg>
 
       <div className="header-elements-box">
-        <div className="header-select-box">
-          <p className="header-select-text" style={{ fontSize: "1.125rem" }}>
+        <div className="header-select-box" onClick={() => windowShow()}>
+          <p
+            style={props.activeThemeBtn ? { color: props.bgColorW } : {}}
+            className="header-select-text"
+          >
             Sans-Serif
           </p>
           <svg
@@ -44,31 +56,125 @@ export default function Header() {
           >
             <path d="M1 1L7 7L13 1" stroke="#A445ED" strokeWidth="1.5" />
           </svg>
+          {selectWindow && (
+            <div
+              style={
+                props.activeThemeBtn
+                  ? {
+                      backgroundColor: props.bgColorInput,
+                      boxShadow: "0px 5px 30px #A445ED",
+                    }
+                  : {}
+              }
+              className="header-select-window"
+            >
+              <ul>
+                <li
+                  className={props.activeThemeBtn && "active"}
+                  style={{
+                    color:
+                      props.activeThemeBtn &&
+                      (hovered1 ? "#a445ed" : props.bgColorW),
+                  }}
+                  onMouseEnter={() => {
+                    props.activeThemeBtn && setHovered1(true);
+                  }}
+                  onMouseLeave={() => {
+                    props.activeThemeBtn && setHovered1(false);
+                  }}
+                >
+                  Sans-Serif
+                </li>
+                <li
+                  className={props.activeThemeBtn && "active"}
+                  style={{
+                    color:
+                      props.activeThemeBtn &&
+                      (hovered2 ? "#a445ed" : props.bgColorW),
+                  }}
+                  onMouseEnter={() => {
+                    props.activeThemeBtn && setHovered2(true);
+                  }}
+                  onMouseLeave={() => {
+                    props.activeThemeBtn && setHovered2(false);
+                  }}
+                >
+                  Serif
+                </li>
+                <li
+                  className={props.activeThemeBtn && "active"}
+                  style={{
+                    color:
+                      props.activeThemeBtn &&
+                      (hovered3 ? "#a445ed" : props.bgColorW),
+                  }}
+                  onMouseEnter={() => {
+                    props.activeThemeBtn && setHovered3(true);
+                  }}
+                  onMouseLeave={() => {
+                    props.activeThemeBtn && setHovered3(false);
+                  }}
+                >
+                  Mono
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
 
         <div className="header-vertical-line"></div>
 
-        <div className="header-bgcolor-btn">
-          <div className="header-bgcolor-circle"></div>
-        </div>
-
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 22 22"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          style={
+            props.activeThemeBtn ? { backgroundColor: props.bgColorP } : {}
+          }
+          className={"header-bgcolor-btn"}
+          onClick={() => props.activateBtn()}
         >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M1 10.449C0.998458 12.8283 1.80169 15.1383 3.27914 17.0033C4.75659 18.8683 6.82139 20.1788 9.13799 20.7218C11.4545 21.2647 13.8866 21.0082 16.039 19.994C18.1912 18.9797 19.9373 17.2673 20.9931 15.1352C11.5442 15.1352 6.85799 10.4479 6.85799 1C5.09842 1.87311 3.61767 3.22033 2.58266 4.88981C1.54765 6.5593 0.999502 8.48469 1 10.449Z"
-            stroke="#757575"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+          <div
+            className={[
+              "header-bgcolor-circle",
+              props.activeThemeBtn && "header-bgcolor-circle-move",
+            ].join(" ")}
+          ></div>
+        </div>
+        {props.activeThemeBtn ? (
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M1 10.449C0.998458 12.8283 1.80169 15.1383 3.27914 17.0033C4.75659 18.8683 6.82139 20.1788 9.13799 20.7218C11.4545 21.2647 13.8866 21.0082 16.039 19.994C18.1912 18.9797 19.9373 17.2673 20.9931 15.1352C11.5442 15.1352 6.85799 10.4479 6.85799 1C5.09842 1.87311 3.61767 3.22033 2.58266 4.88981C1.54765 6.5593 0.999502 8.48469 1 10.449Z"
+              stroke="#A445ED"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        ) : (
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M1 10.449C0.998458 12.8283 1.80169 15.1383 3.27914 17.0033C4.75659 18.8683 6.82139 20.1788 9.13799 20.7218C11.4545 21.2647 13.8866 21.0082 16.039 19.994C18.1912 18.9797 19.9373 17.2673 20.9931 15.1352C11.5442 15.1352 6.85799 10.4479 6.85799 1C5.09842 1.87311 3.61767 3.22033 2.58266 4.88981C1.54765 6.5593 0.999502 8.48469 1 10.449Z"
+              stroke="#757575"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        )}
       </div>
     </div>
   );

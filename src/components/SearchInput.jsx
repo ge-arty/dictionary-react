@@ -6,6 +6,17 @@ export default function SearchInput(props) {
     <>
       <div className="search-input-container">
         <input
+          className={`${
+            props.activeThemeBtn ? "placeholder-color1" : "placeholder-color2"
+          }`}
+          style={
+            props.activeThemeBtn
+              ? {
+                  backgroundColor: props.bgColorInput,
+                  color: props.bgColorW,
+                }
+              : {}
+          }
           onChange={props.onChange}
           value={props.word}
           placeholder="Search for any word…"
@@ -25,9 +36,11 @@ export default function SearchInput(props) {
           />
         </svg>
       </div>
-      <p className="error-text">
-        {props.empty ? "Whoops, can’t be empty…" : " "}
-      </p>
+      <div className="error-text-container">
+        <p className="error-text">
+          {props.empty ? "Whoops, can’t be empty…" : " "}
+        </p>
+      </div>
     </>
   );
 }

@@ -5,6 +5,7 @@
   flex-direction: column;
   margin-top: 45px;
   width: 100%;
+  max-width: 736.99px;
 }
 
 .not-found-emoji {

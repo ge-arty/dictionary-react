@@ -14,7 +14,12 @@ export default function Content(props) {
     <div className="content-container">
       <div className="content-word-main">
         <div className="content-word-box">
-          <h3 className="content-word">{props.word}</h3>
+          <h3
+            style={props.activeThemeBtn ? { color: props.bgColorW } : {}}
+            className="content-word"
+          >
+            {props.word}
+          </h3>
           <p className="content-transcription">{props.phonetic}</p>
         </div>
         {props.word && (
@@ -40,6 +45,8 @@ export default function Content(props) {
       {props.meanings?.map((meaning, index) => {
         return (
           <Meanings
+            activeThemeBtn={props.activeThemeBtn}
+            bgColorW={props.bgColorW}
             key={index}
             partOfSpeech={meaning.partOfSpeech}
             meaning={meaning}
@@ -51,10 +58,14 @@ export default function Content(props) {
         <>
           <div className="content-horizontal-line"></div>
           <div className="content-source-box">
-            <span> Source</span>
+            <span>Source</span>
             {props.sourceUrls?.map((link, index) => {
               return (
-                <a key={index} href={link}>
+                <a
+                  style={props.activeThemeBtn ? { color: props.bgColorW } : {}}
+                  key={index}
+                  href={link}
+                >
                   {link}
                 </a>
               );
