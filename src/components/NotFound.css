@@ -13,7 +13,6 @@
 }
 .not-found-title {
   margin-top: 44px;
-  font-style: normal;
   font-weight: 700;
   font-size: 1.25rem;
   line-height: 24px;
@@ -22,7 +21,6 @@
 }
 .not-found-text {
   margin-top: 24px;
-  font-style: normal;
   font-weight: 400;
   font-size: 1.125rem;
   line-height: 24px;

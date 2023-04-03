@@ -10,6 +10,10 @@ export default function Header(props) {
   function windowShow() {
     setSelectWindow(!selectWindow);
   }
+  function selectFont(e) {
+    const textContent = e.target.textContent;
+    props.setFont(textContent);
+  }
 
   return (
     <div className="header-container">
@@ -45,7 +49,7 @@ export default function Header(props) {
             style={props.activeThemeBtn ? { color: props.bgColorW } : {}}
             className="header-select-text"
           >
-            Sans-Serif
+            {props.font}
           </p>
           <svg
             width="13"
@@ -70,7 +74,7 @@ export default function Header(props) {
             >
               <ul>
                 <li
-                  className={props.activeThemeBtn && "active"}
+                  className={props.activeThemeBtn ? "active" : ""}
                   style={{
                     color:
                       props.activeThemeBtn &&
@@ -82,11 +86,12 @@ export default function Header(props) {
                   onMouseLeave={() => {
                     props.activeThemeBtn && setHovered1(false);
                   }}
+                  onClick={(e) => selectFont(e)}
                 >
                   Sans-Serif
                 </li>
                 <li
-                  className={props.activeThemeBtn && "active"}
+                  className={props.activeThemeBtn ? "active" : ""}
                   style={{
                     color:
                       props.activeThemeBtn &&
@@ -98,11 +103,12 @@ export default function Header(props) {
                   onMouseLeave={() => {
                     props.activeThemeBtn && setHovered2(false);
                   }}
+                  onClick={(e) => selectFont(e)}
                 >
                   Serif
                 </li>
                 <li
-                  className={props.activeThemeBtn && "active"}
+                  className={props.activeThemeBtn ? "active" : ""}
                   style={{
                     color:
                       props.activeThemeBtn &&
@@ -114,6 +120,7 @@ export default function Header(props) {
                   onMouseLeave={() => {
                     props.activeThemeBtn && setHovered3(false);
                   }}
+                  onClick={(e) => selectFont(e)}
                 >
                   Mono
                 </li>
@@ -128,7 +135,7 @@ export default function Header(props) {
           style={
             props.activeThemeBtn ? { backgroundColor: props.bgColorP } : {}
           }
-          className={"header-bgcolor-btn"}
+          className="header-bgcolor-btn"
           onClick={() => props.activateBtn()}
         >
           <div

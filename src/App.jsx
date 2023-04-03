@@ -15,6 +15,7 @@ function App() {
   const [empty, setEmpty] = useState(false);
   const [incorrectWord, setIncorrectWord] = useState(false);
   const [activeThemeBtn, setActiveThemeBtn] = useState(false);
+  const [font, setFont] = useState("Sans-serif");
 
   const bgColor = {
     white: "#FFFFFF",
@@ -65,9 +66,21 @@ function App() {
   return (
     <div
       className="app-container"
-      style={activeThemeBtn ? { backgroundColor: bgColor.black } : {}}
+      style={{
+        backgroundColor: activeThemeBtn ? bgColor.black : bgColor.white,
+        fontFamily:
+          font === "Serif"
+            ? "Lora, serif"
+            : font === "Mono"
+            ? "Inconsolata, monospace"
+            : font === "Sans-Serif"
+            ? "Inter, sans-serif"
+            : "inherit",
+      }}
     >
       <Header
+        font={font}
+        setFont={setFont}
         activeThemeBtn={activeThemeBtn}
         activateBtn={activateBtn}
         bgColorW={bgColor.white}

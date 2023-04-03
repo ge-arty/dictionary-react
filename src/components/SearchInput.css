@@ -13,7 +13,6 @@
   height: 24px;
   border: none;
   background: #f4f4f4;
-  font-style: normal;
   font-weight: 700;
   font-size: 1.3rem;
   line-height: 24px;
@@ -39,7 +38,6 @@
 }
 
 .search-input-container input::placeholder {
-  font-style: normal;
   font-weight: 700;
   font-size: 1.3rem;
   line-height: 24px;
@@ -62,7 +60,6 @@
 
 .error-text {
   margin-top: 8px;
-  font-style: normal;
   font-weight: 400;
   font-size: 1.3rem;
   line-height: 24px;

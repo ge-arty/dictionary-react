@@ -17,14 +17,12 @@
   gap: 8px;
 }
 .content-word {
-  font-style: normal;
   font-weight: 700;
   font-size: 4rem;
   line-height: 77px;
   color: #2d2d2d;
 }
 .content-transcription {
-  font-style: normal;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 29px;
@@ -47,14 +45,12 @@
   flex-wrap: wrap;
 }
 .content-source-box span {
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   color: #757575;
 }
 .content-source-box a {
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
