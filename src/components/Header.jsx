@@ -10,6 +10,7 @@ export default function Header(props) {
   function windowShow() {
     setSelectWindow(!selectWindow);
   }
+
   function selectFont(e) {
     const textContent = e.target.textContent;
     props.setFont(textContent);
